@@ -1,0 +1,18 @@
+{
+  "name": "free-board",
+  "version": "1.0.0",
+  "description": "simple free-board and login-page with nodejs",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/node": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "nodemon": "^2.0.19"
+  }
+}
