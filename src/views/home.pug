@@ -1,6 +1,6 @@
-extends base
-include mixins/print
-block content
-    each user in users 
+extends base.pug
+include mixins/list
+block contents 
+    each mac in macBooks 
         ul 
-            +print(user)
+            +show(mac)

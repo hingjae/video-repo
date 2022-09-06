@@ -1,0 +1,7 @@
+extends base.pug
+block contents 
+    form(method="POST")
+        input(name="name" type="text" placeholder="name" value=mac.name)
+        input(name="size" type="text" placeholder="size" value=mac.size)
+        input(name="chipSet" type="text" placeholder="name" value=mac.chipSet)
+        input(type="submit" value="save")

@@ -1,0 +1,7 @@
+extends base.pug
+block contents 
+    form(method="POST")
+        input(name="name" placeholder="name" required type="text")
+        input(name="size" placeholder="size" required type="text")
+        input(name="chipSet" placeholder="chip" required type="text")
+        input(type="submit" value="Save")

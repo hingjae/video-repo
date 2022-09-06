@@ -5,19 +5,16 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
-        title #{pageTitle}
+        title Document
     body 
-        include partials/header 
-        main
-            h1 hello world
-            nav 
+        header
+            include partials/clock.pug
+            h1 Hello World!
+            nav  
                 ul 
                     li 
                         a(href="/") Home
-                    if fakeUser.logged
-                        li 
-                            a(href="#") logout 
-                    else 
-                        li 
-                            a(href="#") login 
-            block content
+                    li 
+                        a(href="upload") Upload
+        main 
+            block contents
