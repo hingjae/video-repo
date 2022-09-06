@@ -1,7 +1,6 @@
-extends base.pug
-include mixins/info
-
-block content 
-    h1 This is user info list
+extends base
+include mixins/print
+block content
     each user in users 
-        +info(user)
+        ul 
+            +print(user)

@@ -1,0 +1,8 @@
+extends base.pug
+block content 
+    header This is user #{user.name}
+    h1 name : #{user.name}
+    h2 age : #{user.age}
+    h3 id : #{user.id}
+    div 
+        a(href=`${user.id}/edit`) Edit User
