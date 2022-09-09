@@ -1,0 +1,6 @@
+mixin print(macs)
+    each mac in macs 
+        ul 
+            a(href="mac/" + mac.id)=mac.name 
+            li=mac.id 
+            li=mac.value

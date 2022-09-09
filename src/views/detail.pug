@@ -1,6 +1,6 @@
 extends base.pug
 block contents 
-    h1 This is : #{mac.name}
-    h2 Size : #{mac.size}
-    h2 Chip : #{mac.chipSet}
-    a(href=`${mac.id}/edit`) Edit Info
+    h1 #{mac.name}
+    h2 #{mac.id}
+    h2 #{mac.value}
+    a(href=mac.id + "/edit") Edit

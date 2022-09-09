@@ -1,8 +1,12 @@
 import express from "express";
-import { showMac, getEditMac, postEditMac } from "../controllers/macController";
+import {
+  macDetail,
+  getMacEdit,
+  postMacEdit,
+} from "../controllers/macController";
 const macRouter = express.Router();
 
-macRouter.get("/:id(\\d+)", showMac);
-macRouter.route("/:id(\\d+)/edit").get(getEditMac).post(postEditMac);
+macRouter.get("/:id(\\d+)", macDetail);
+macRouter.route("/:id(\\d+)/edit").get(getMacEdit).post(postMacEdit);
 
 export default macRouter;

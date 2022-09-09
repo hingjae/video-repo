@@ -1,6 +1,4 @@
 extends base.pug
-include mixins/list
+include mixins/print.pug
 block contents 
-    each mac in macBooks 
-        ul 
-            +show(mac)
+    +print(macs)

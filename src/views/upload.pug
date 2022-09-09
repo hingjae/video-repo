@@ -1,7 +1,6 @@
 extends base.pug
 block contents 
     form(method="POST")
-        input(name="name" placeholder="name" required type="text")
-        input(name="size" placeholder="size" required type="text")
-        input(name="chipSet" placeholder="chip" required type="text")
+        input(name="name" placeholder="name" type="text" required)
+        input(name="value" placeholder="value" type="text" required)
         input(type="submit" value="Save")

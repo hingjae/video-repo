@@ -1,5 +1,5 @@
 import express from "express";
-import { home, getUpload, postUpload } from "../controllers/macController";
+import { home, getUpload, postUpload } from "../controllers/macController.js";
 
 const globalRouter = express.Router();
 

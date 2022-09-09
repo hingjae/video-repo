@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "simple free-board and login-page with nodejs",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.1",
+    "mongoose": "^6.6.0",
     "morgan": "^1.10.0",
     "nunjucks": "^3.2.3",
     "pug": "^3.0.2"
