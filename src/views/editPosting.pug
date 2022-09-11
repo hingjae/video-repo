@@ -1,0 +1,7 @@
+extends base.pug
+block contents
+    form(method="POST")
+        input(type="text" placeholder="title" required name="title" value=posting.title)
+        input(type="text" placeholder="contents" required name="contents" value=posting.contents)
+        input(type="text" placeholder="hashtags" required name="hashtags" value=posting.hashtags.join())
+        input(type="submit" value="Save")

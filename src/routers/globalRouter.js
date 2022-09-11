@@ -1,6 +1,5 @@
 import express from "express";
-import { home, getUpload, postUpload } from "../controllers/controller";
-
+import { home, getUpload, postUpload } from "../controllers/postingController";
 const globalRouter = express.Router();
 
 globalRouter.get("/", home);

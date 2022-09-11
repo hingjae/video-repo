@@ -1,0 +1,8 @@
+mixin print(postings)
+    each posting in postings 
+        ul 
+            a(href=`posting/${posting._id}`) #{posting.title}
+            p #{posting.contents}
+            h5 #{posting.hashtags}
+            h4 #{posting.createdAt}
+        hr
