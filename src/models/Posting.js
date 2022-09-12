@@ -1,22 +1,16 @@
 import mongoose from "mongoose";
 
 const postingSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-    trim: true,
-    uppercase: true,
-    minLength: 3,
-  },
-  contents: {
-    type: String,
-    required: true,
-    trim: true,
-    lowercase: true,
-    maxLength: 20,
-  },
-  hashtags: [{ type: String, trim: true }],
-  createdAt: { type: Date, required: true, default: new Date() },
+  title: { type: String, required: true, trim: true, minLength: 1 },
+  contents: { type: String, required: true, minLength: 1 },
+  hashtags: [{ type: String }],
+  createdAt: { type: Date, required: true, default: Date.now },
+});
+
+postingSchema.static("formatHashtags", function (hashtags) {
+  return hashtags
+    .split(",")
+    .map((word) => (word.startsWith("#") ? word : `#${word}`));
 });
 
 const Posting = mongoose.model("Posting", postingSchema);

@@ -1,9 +1,9 @@
 extends base.pug
 block contents 
-    if errorMessage  
+    if errorMessage 
         span=errorMessage
     form(method="POST")
-        input(type="text" placeholder="title" required name="title")
-        input(type="text" placeholder="contents" required name="contents")
-        input(type="text" placeholder="hashtags" required name="hashtags")
+        input(name="title" type="text" required placeholder="title")
+        input(name="contents" type="text" required placeholder="contents")
+        input(name="hashtags" type="text" required placeholder="hashtags")
         input(type="submit" value="Save")

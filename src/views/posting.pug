@@ -1,0 +1,10 @@
+extends base.pug
+block contents 
+    h1=posting.title
+    p #{posting.contents}
+    h6 #{posting.hashtags}
+    small #{posting.createdAt}
+    div 
+        a(href=posting.id+"/edit") Edit
+        br
+        a(href=posting.id+"/delete") Delete

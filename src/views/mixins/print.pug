@@ -1,0 +1,13 @@
+mixin print(postings)
+    if postings.length == 0
+        ul 
+            li Sorry nothing postings
+    each posting in postings 
+        h3   
+            a(href="posting/"+ posting.id) #{posting.title}
+        p #{posting.contents}
+        ul
+            each hashtag in posting.hashtags
+                li #{hashtag}
+        small #{posting.createdAt}
+        hr
