@@ -1,4 +1,8 @@
 extends base.pug
 include mixins/print.pug
-block contents 
-    +print(postings)
+block contents
+    if postings.length == 0
+        li nothing posting
+    each posting in postings 
+        +print(posting)
+        hr

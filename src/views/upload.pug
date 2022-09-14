@@ -3,7 +3,7 @@ block contents
     if errorMessage 
         span=errorMessage
     form(method="POST")
-        input(name="title" type="text" required placeholder="title")
-        input(name="contents" type="text" required placeholder="contents")
-        input(name="hashtags" type="text" required placeholder="hashtags")
+        input(type="text" placeholder="title" name="title" required)
+        input(type="text" placeholder="contents" name="contents" required)
+        input(type="text" placeholder="hashtags" name="hashtags" required)
         input(type="submit" value="Save")

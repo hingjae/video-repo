@@ -3,13 +3,13 @@ import {
   home,
   getUpload,
   postUpload,
-  getSearch,
-  postSearch,
+  search,
 } from "../controllers/postingController";
+
 const globalRouter = express.Router();
 
-globalRouter.get("/", home);
+globalRouter.route("/").get(home);
 globalRouter.route("/upload").get(getUpload).post(postUpload);
-globalRouter.route("/search").get(getSearch);
+globalRouter.route("/search").get(search);
 
 export default globalRouter;

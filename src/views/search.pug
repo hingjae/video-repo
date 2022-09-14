@@ -1,8 +1,11 @@
 extends base.pug
-include mixins/print
+include mixins/print.pug
 block contents 
     form(method="GET")
-        input(placeholder="Search by title", type="text" name="keyword")
-        input(type="submit" value="Search" required)
-    if postings
-        +print(postings)
+        input(type="text" required placeholder="Enter the title" name="keyword")
+        input(type="submit" value="Search")
+    if postings.length == 0
+        li nothing posting
+    each posting in postings 
+        +print(posting)
+        hr
