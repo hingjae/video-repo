@@ -1,0 +1,12 @@
+extends base
+block contents 
+    if errorMessage 
+        span=errorMessage
+    form(method="POST")
+        input(name="email" placeholder="email" required type="text")
+        input(name="password" placeholder="password" required type="password")
+        input(type="submit" value="login")
+    hr
+    div 
+        span Don't have an account ?
+        a(href="/join") Create Account &rarr;

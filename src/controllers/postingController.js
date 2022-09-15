@@ -23,7 +23,7 @@ export const postUpload = async (req, res) => {
     });
     return res.redirect("/");
   } catch (error) {
-    return res.render("upload", {
+    return res.status(400).render("upload", {
       pageTitle: "Upload",
       errorMessage: error._message,
     });
@@ -53,12 +53,19 @@ export const enterPosting = async (req, res) => {
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const posting = await Posting.findById(id);
+  if (!posting) {
+    return res.status(404).render("404", { pageTitle: "Video not found." });
+  }
   return res.render("edit", { pageTitle: "Edit", posting });
 };
 
 export const postEdit = async (req, res) => {
   const { id } = req.params;
   const { title, contents, hashtags } = req.body;
+  const posting = await Posting.exists({ _id: id });
+  if (!posting) {
+    return res.status(404).render("404", { pageTitle: "Video not found" });
+  }
   await Posting.findByIdAndUpdate(id, {
     title,
     contents,
