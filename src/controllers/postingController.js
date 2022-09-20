@@ -38,7 +38,7 @@ export const search = async (req, res) => {
       title: {
         $regex: new RegExp(keyword, "i"),
       },
-    });
+    }).sort({ createdAt: "desc" });
     return res.render("search", { pageTitle: "Search", postings });
   }
   return res.render("search", { pageTitle: "Search", postings });

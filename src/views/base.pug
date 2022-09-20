@@ -17,7 +17,13 @@ html(lang="en")
                         a(href="/upload") Upload
                     li 
                         a(href="/search") Search
-                    li 
-                        a(href="/login") Login
+                        if loggedIn 
+                            li 
+                                a(href="/logout") Log Out
+                            li 
+                                a(href="/profile") #{loggedInUser.email}의 프로필
+                        else
+                            li 
+                                a(href="/login") Login
         main 
             block contents
