@@ -3,14 +3,11 @@ block contents
     if errorMessage 
         span=errorMessage
     form(method="POST")
-        input(placeholder="email" name ="email" type="email", required)
-        input(placeholder="password" name ="password" type="password", required)
-        input(placeholder="confirm password" name ="password2" type="password", required)
-        input(placeholder="location" name ="location" type="text")
-        input(type="submit", value="Join")
-    
-    hr
+        input(type="email" placeholder="E-mail" required name="email")
+        input(type="password" placeholder="Password" required name="password")
+        input(type="password" placeholder="Confirm password" required name="password2")
+        input(type="nickname" placeholder="Nickname" required name="nickname")
+        input(type="submit" value="Join")
     div 
-        span Already have an account?
-        a(href="/login") Log in now &rarr;
-        
+        h4 Do you have an account ? 
+            a(href="/login") Login &rarr;

@@ -1,4 +1,9 @@
 mixin print(posting)
-    h2 
-        a(href=`posting/${posting.id}`) #{posting.title}
-    small #{posting.createdAt}
+    div
+        h3
+            a(href=`posting/${posting.id}`) #{posting.title} 
+        each hashtag in posting.hashtags 
+            span #{hashtag}     
+        br
+        small=posting.createdAt
+    hr

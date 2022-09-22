@@ -1,0 +1,9 @@
+extends base
+block contents 
+    if errorMessage 
+        span=errorMessage
+    form(method="POST")
+        input(type="text" placeholder="title" required name="title" value=posting.title)
+        input(type="text" placeholder="contents" required name="contents" value=posting.contents)
+        input(type="text" placeholder="hashtags" name="hashtags" value=posting.hashtags.join())
+        input(type="submit" value="Edit")

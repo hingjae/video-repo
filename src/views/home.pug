@@ -1,8 +1,8 @@
-extends base.pug
-include mixins/print.pug
+extends base
+include mixins/print
 block contents
-    if postings.length == 0
-        li nothing posting
-    each posting in postings 
-        +print(posting)
-        hr
+    div
+        each posting in postings
+            +print(posting)
+    if errorMessage 
+        h2=errorMessage

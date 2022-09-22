@@ -1,0 +1,12 @@
+extends base
+block contents 
+    div 
+        p=posting.contents 
+        each hashtag in posting.hashtags 
+            span #{hashtag} 
+        br
+        small=posting.createdAt
+        br
+        a(href=`${posting.id}/edit`) Edit &rarr;
+        br
+        a(href=`${posting.id}/delete`) Delete &rarr;
