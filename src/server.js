@@ -2,8 +2,8 @@ import express from "express";
 import morgan from "morgan";
 import session from "express-session";
 import rootRouter from "./routers/rootRouter";
-import { localsMiddleware } from "./middlewares";
 import postingRouter from "./routers/postingRouter";
+import { localsMiddleware } from "./middlewares";
 
 const app = express();
 const logger = morgan("dev");
