@@ -10,6 +10,8 @@ import {
   getLogin,
   postJoin,
   postLogin,
+  githubLoginStart,
+  GithubLoginFinish,
 } from "../controllers/userController";
 const rootRouter = express.Router();
 
@@ -18,5 +20,6 @@ rootRouter.route("/upload").get(getUpload).post(postUpload);
 rootRouter.route("/search").get(search);
 rootRouter.route("/login").get(getLogin).post(postLogin);
 rootRouter.route("/join").get(getJoin).post(postJoin);
-
+rootRouter.route("/login/github/start").get(githubLoginStart);
+rootRouter.route("/login/github/finish").get(GithubLoginFinish);
 export default rootRouter;

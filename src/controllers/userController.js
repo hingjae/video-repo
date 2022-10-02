@@ -1,5 +1,6 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
+import fetch from "node-fetch";
 
 export const getLogin = (req, res) => {
   return res.render("login", { pageTitle: "Login" });
@@ -66,4 +67,62 @@ export const postJoin = async (req, res) => {
       .render("login", { pageTitle, errorMessage: error._message });
   }
   return res.redirect("/login");
+};
+
+export const githubLoginStart = (req, res) => {
+  const baseUrl = "https://github.com/login/oauth/authorize?";
+  const config = {
+    client_id: process.env.GH_CLIENT_ID,
+    allow_signup: false,
+    scope: "user:email read:user",
+  };
+  const params = new URLSearchParams(config).toString();
+  const url = baseUrl + params;
+  return res.redirect(url); // 깃헙 developer setting에서 지정해줬던 콜백 url로감. github
+};
+
+export const GithubLoginFinish = async (req, res) => {
+  const baseUrl = "https://github.com/login/oauth/access_token?";
+  const config = {
+    client_id: process.env.GH_CLIENT_ID,
+    client_secret: process.env.GH_CLIENT_SECRET,
+    code: req.query.code,
+  };
+  const params = new URLSearchParams(config).toString();
+  const url = baseUrl + params;
+  const data = await (
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+  ).json();
+  console.log(data);
+  // res.send(JSON.stringify(json));
+  if ("access_token" in data) {
+    const { access_token } = data;
+    const userData = await (
+      await fetch("https://api.github.com/user", {
+        method: "GET",
+        headers: {
+          Authorization: `token ${access_token}`, // 이해 안가는 부분 다큐먼트랑 비교했을 때 다름.
+        },
+      })
+    ).json();
+    const emailData = await (
+      await fetch("https://api.github.com/user/emails", {
+        method: "GET",
+        headers: {
+          Authorization: `token ${access_token}`,
+        },
+      })
+    ).json();
+    const email = emailData.find(
+      (email) => email.primary === true && email.verified === true
+    );
+    console.log(email);
+  } else {
+    return res.redirect("/login");
+  }
 };
